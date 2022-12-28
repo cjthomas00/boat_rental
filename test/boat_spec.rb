@@ -20,5 +20,10 @@ RSpec.describe Boat do
   it "can calculate hours rented" do
     expect(@kayak.hours_rented).to eq(0)
 
+    @kayak.add_hour
+    @kayak.add_hour
+    @kayak.add_hour
+
+    expect(@kayak.hours_rented).to eq(3)
   end
 end
