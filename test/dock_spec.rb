@@ -17,4 +17,21 @@ RSpec.describe Dock do
     expect(@dock.name).to eq("The Rowing Dock")
     expect(@dock.max_rental_time).to eq(3)
   end
+
+  it "can rent boats" do 
+    expect(@dock.rental_log).to eq({})
+    @dock.rent(@kayak_1, @patrick)
+    @dock.rent(@kayak_2, @patrick)
+    @dock.rent(@sup_1, @eugene)
+  end
+
+  it "can charge rent" do 
+    @dock.rent(@kayak_1, @patrick)
+    @dock.rent(@kayak_2, @patrick)
+    @dock.rent(@sup_1, @eugene)
+
+    @kayak_1.add_hour
+    @kayak_1.add_hour
+
+  end
 end
