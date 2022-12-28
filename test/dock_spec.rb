@@ -33,5 +33,11 @@ RSpec.describe Dock do
     @kayak_1.add_hour
     @kayak_1.add_hour
 
+    expected_result = {
+    :card_number => "4242424242424242",
+    :amount => 40
+     } 
+
+    expect(@dock.charge(@kayak_1)).to eq(expected_result)
   end
 end
