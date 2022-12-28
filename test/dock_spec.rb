@@ -2,7 +2,7 @@ require './lib/boat'
 require './lib/renter'
 require './lib/dock'
 
-RSpec.describe dock do
+RSpec.describe Dock do
   before(:each) do 
     @kayak_1 = Boat.new(:kayak, 20)
     @kayak_2 = Boat.new(:kayak, 20)
@@ -11,3 +11,10 @@ RSpec.describe dock do
     @eugene = Renter.new("Eugene Crabs", "1313131313131313")
     @dock = Dock.new("The Rowing Dock", 3)
   end
+
+  it "exists and has attributes" do 
+    expect(@dock).to be_an_instance_of(Dock)
+    expect(@dock.name).to eq("The Rowing Dock")
+    expect(@dock.max_rental_time).to eq(3)
+  end
+end
