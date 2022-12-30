@@ -37,7 +37,7 @@ RSpec.describe Dock do
     :card_number => "4242424242424242",
     :amount => 40
      } 
-
+     #require 'pry'; binding.pry
     expect(@dock.charge(@kayak_1)).to eq(expected_result)
   end
 end

@@ -13,8 +13,11 @@ class Dock
 
   def charge(boat)
     amount = boat.hours_rented * boat.price_per_hour
-     require 'pry'; binding.pry
-    card_number = @renter_log[boat].credit_card_number
+    cc_num = rental_log[boat].credit_card_number
 
+    {
+      card_number: cc_num,
+      amount: amount
+    }
   end
 end
