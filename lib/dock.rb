@@ -12,9 +12,13 @@ class Dock
   end
 
   def charge(boat)
-      boat.hours_rented <= @max_rental_time
-      amount = boat.hours_rented * boat.price_per_hour
-      cc_num = rental_log[boat].credit_card_number
+      if boat.hours_rented <= @max_rental_time
+        amount = boat.hours_rented * boat.price_per_hour
+        cc_num = rental_log[boat].credit_card_number
+      elsif boat.hours_rented > @max_rental_time
+        amount = @max_rental_time * boat.price_per_hour
+        cc_num = rental_log[boat].credit_card_number
+      end
       
     {
       card_number: cc_num,
